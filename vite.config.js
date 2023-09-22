@@ -3,7 +3,6 @@ import react from '@vitejs/plugin-react';
 import webfontDownload from 'vite-plugin-webfont-dl';
 import { VitePWA } from 'vite-plugin-pwa';
 import { chunkSplitPlugin } from 'vite-plugin-chunk-split';
-import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -11,64 +10,19 @@ export default defineConfig({
     cssMinify: 'esbuild',
     minify: 'esbuild',
   },
+
   plugins: [
     react(),
+
     webfontDownload([
       'https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&display=swap',
       'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap',
     ]),
+
     chunkSplitPlugin({
       strategy: 'default',
     }),
-    ViteImageOptimizer({
-      test: /\.(jpe?g|png|gif|tiff|webp|svg|avif)$/i,
-      exclude: undefined,
-      include: undefined,
-      includePublic: true,
-      logStats: true,
-      ansiColors: true,
-      svg: {
-        multipass: true,
-        plugins: [
-          {
-            name: 'preset-default',
-            params: {
-              overrides: {
-                cleanupNumericValues: false,
-                removeViewBox: false,
-              },
-              cleanupIDs: {
-                minify: false,
-                remove: false,
-              },
-              convertPathData: false,
-            },
-          },
-          'sortAttrs',
-          {
-            name: 'addAttributesToSVGElement',
-            params: {
-              attributes: [{ xmlns: 'http://www.w3.org/2000/svg' }],
-            },
-          },
-        ],
-      },
-      png: {
-        quality: 80,
-      },
-      jpeg: {
-        quality: 80,
-      },
-      jpg: {
-        quality: 80,
-      },
-      webp: {
-        quality: 70,
-        lossless: false,
-      },
-      cache: false,
-      cacheLocation: undefined,
-    }),
+
     VitePWA({
       registerType: 'autoUpdate',
       includeAssets: [
@@ -197,7 +151,6 @@ export default defineConfig({
       },
       workbox: {
         globPatterns: ['**/*.{js,jsx,ts,tsx,html,css,jpg,webp,png,ico,svg,json,woff,woff2,ttf}'],
-
       },
     }),
   ],
