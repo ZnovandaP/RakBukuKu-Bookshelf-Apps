@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+  box-sizing: border-box;
+}
+
+*:focus{
+  outline: none;
+}
+
+@layer components{
+  .button {
+    @apply flex justify-center items-center min-h-[44px] min-w-[44px] text-center cursor-pointer bg-primary text-fifth font-medium tracking-wide px-8 rounded-tr-3xl rounded-bl-3xl ring-2 ring-fourth hover:bg-secondary transition-all duration-300 dark:bg-dark-secondary dark:text-neutral-100 dark:hover:bg-dark-secondary dark:ring-dark-primary
+  }
+
+  .input {
+    @apply min-w-[44px] min-h-[44px] w-full px-4 bg-neutral-100 text-neutral-500 font-medium tracking-wider rounded-md ring-1 ring-primary placeholder:italic placeholder:text-sm placeholder:opacity-75 focus:ring-2 focus:ring-primary focus:dark:ring-dark-primary dark:ring-dark-primary dark:bg-dark-tertiary dark:text-neutral-100
+  }
+
+  .input[type=file]::file-selector-button {
+    @apply bg-primary border-none py-2 px-4 h-full -translate-x-4 rounded-tl-md rounded-bl-md text-neutral-50 font-medium hover:bg-secondary transition-all duration-300 cursor-pointer dark:bg-dark-primary dark:hover:opacity-70
+  }
+
+  .nav-hover::after {
+    content: "";
+    position: absolute;
+    bottom: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 4px;
+    width: 0;
+    border-radius: .5rem;
+    @apply transition-all duration-300 ease-in-out bg-primary dark:bg-dark-primary
+  }
+  
+  .nav-hover {
+    @apply flex justify-center items-center relative min-h-[44px] min-w-[44px] transition-all duration-300 ease-in-out
+  }
+  
+  .nav-hover:hover::after, .nav-hover:focus::after{
+    width: 30%;
+  }
+  
+  /* active NavLink */
+  .active::after {
+    content: "";
+    position: absolute;
+    bottom: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 4px;
+    width: 30%;
+    border-radius: .5rem;
+    @apply transition-all duration-300 ease-in-out bg-primary dark:bg-dark-primary
+  }
+  
+  .active {
+    @apply flex justify-center items-center relative min-h-[44px] min-w-[44px] transition-all duration-300
+  }
+  
+  .hover-tab{
+    @apply flex justify-center items-center min-w-[44px] min-h-[44px] font-medium tracking-wide text-neutral-600 hover:font-semibold hover:text-secondary  dark:text-neutral-200 dark:hover:text-dark-primary transition-all duration-300
+  }
+  
+  .active-tab {
+    @apply flex justify-center items-center min-w-[44px] min-h-[44px] bg-fifth ring-1 ring-primary px-3 rounded-xl text-primary font-semibold tracking-wide dark:bg-dark-secondary dark:text-dark-primary -translate-y-3 dark:ring-dark-primary transition-all duration-300
+  }
+  
+  .common-tab-mobile{
+    @apply flex justify-center items-center min-w-[44px] min-h-[44px] font-semibold tracking-wider transition-all duration-300
+  }
+  
+  .splide__progress>.splide__progress__bar{
+    @apply bg-primary dark:bg-dark-primary h-1
+  
+  }
+  
+}
+
+@layer utilities {
+  .grid-auto{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}
+
+.splide__pagination .splide__pagination__page {
+    @apply hidden 
+  }
+
+.main {
+  min-height: calc(100vh - 182px);
+}
