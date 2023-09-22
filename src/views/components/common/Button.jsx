@@ -78,9 +78,10 @@ export function ToggleSwitchDarkMode() {
       onClick={() => dispatch(toggleDarkMode({ darkMode: !isDarkMode }))}
       className="h-5 w-[50px] py-2 bg-fourth rounded-2xl relative flex items-center hover:scale-110 focus:outline-dashed  transition-all duration-300 ease-in-out dark:bg-dark-tertiary"
     >
-      <label htmlFor="switch">
+      <label htmlFor="switch-darkmode">
         <input
-          id="switch"
+          id="switch-darkmode"
+          name="switch-darkmode"
           type="checkbox"
           checked={isDarkMode}
           onChange={() => dispatch(toggleDarkMode({ darkMode: !isDarkMode }))}

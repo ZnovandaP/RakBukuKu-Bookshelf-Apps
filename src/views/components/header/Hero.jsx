@@ -43,6 +43,8 @@ function SlideImage() {
           alt={item.alt}
           className="object-cover object-right-bottom"
           style={{ minWidth: '100%', minHeight: '100vh' }}
+          width="1240"
+          height="1024"
           loading="lazy"
         />
       </SplideSlide>
