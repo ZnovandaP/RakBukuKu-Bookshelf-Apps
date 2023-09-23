@@ -28,6 +28,8 @@ export const Input = forwardRef(({
     name={id}
     placeholder={placeholder}
     minLength="3"
+    max="2099"
+    min="0"
     required={required}
   />
 ));

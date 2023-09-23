@@ -45,13 +45,19 @@ export default function BodyFormAddBook({ toastRef }) {
     triggerToast(toastRef);
   };
 
-  function printFile(e) {
+  const printFile = (e) => {
     const reader = new FileReader();
     reader.readAsDataURL(e.target.files[0]);
     reader.onload = () => {
       setFormAddBook({ ...formAddBook, imageCover: reader.result });
     };
-  }
+  };
+
+  const handleInputYear = (e) => {
+    if (e.target.value.length <= 4 && e.target.value.length > 0) {
+      setFormAddBook({ ...formAddBook, yearRelease: e.target.value });
+    }
+  };
 
   return (
     <form
@@ -112,7 +118,7 @@ export default function BodyFormAddBook({ toastRef }) {
           required
           placeholder="Masukkan Tahun Terbit Buku"
           value={yearRelease}
-          onInput={(e) => setFormAddBook({ ...formAddBook, yearRelease: e.target.value })}
+          onInput={(e) => handleInputYear(e)}
         />
       </Label>
 
