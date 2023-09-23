@@ -11,6 +11,7 @@ export default function BooksEmptyMessage({ message }) {
       <img
         className="w-full sm:h-60 opacity-60 dark:opacity-[.35] "
         src={isDarkMode ? IlustrationBoxDark : IlustrationBoxLight}
+        height="240"
         alt="Ilustrasi kotak kosong"
         loading="lazy"
       />
