@@ -34,9 +34,7 @@ export default function Bookshelf() {
   useSetTitle();
 
   useEffect(() => {
-    if (bookshelf.length > 0) {
-      localStorage.setItem('BOOKSHELF', JSON.stringify(bookshelf));
-    }
+    localStorage.setItem('BOOKSHELF', JSON.stringify(bookshelf));
   }, [bookshelf]);
 
   useEffect(() => {
