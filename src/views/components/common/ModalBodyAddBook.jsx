@@ -54,7 +54,7 @@ export default function BodyFormAddBook({ toastRef }) {
   };
 
   const handleInputYear = (e) => {
-    if (e.target.value.length <= 4 && e.target.value.length > 0) {
+    if (e.target.value.length <= 4 && e.target.value.length >= 0) {
       setFormAddBook({ ...formAddBook, yearRelease: e.target.value });
     }
   };
